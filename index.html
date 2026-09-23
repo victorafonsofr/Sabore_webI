@@ -11,19 +11,55 @@
     <nav>
         <div class="nav-bar">
             <img class="img-logo" src="assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="logo">
-            <a href="">Início</a>
-            <a href="">Receitas principais</a>
+            <a href="#">Início</a>
+            <a href="#receitas">Receitas principais</a>
             <a href="">Receitas favoritadas</a>
-            <a href="">Sobre o Saborê</a>
+            <a href="#sobre">Sobre o Saborê</a>
             <div class="pesquisar">
+                
                 <input class="input" type="text" placeholder="pesquisar...">
+                <a href="">
                 <img class="pesquisar-img" src="assets/icons/simbolo-da-interface-de-pesquisa.png" alt="lp">
+                </a>
             </div>
+            <a href="">
+            <img class="pesquisar-img" style="margin-right: 30px;" src="assets/icons/icone-perfil.png" alt="logar">
+            </a>
         </div>
         
     </nav>
 
-    <main class="receitas">
+    <section class="hero">
+        <div class="hero-texto">
+            <h1>Bem-vindo ao Saborê!</h1>
+
+            <p>
+                Aprenda a fazer suas receitas favoritas ou encontre sua próxima receita favorita!
+            </p>
+
+            <a href="#" class="botao">Explorar receitas</a>
+        </div>
+
+        <div class="hero-imagem">
+            <img src="assets/icons/ilustracao.png" alt="Ilustração">
+        </div>
+    </section>
+    
+    <section class="categorias">
+
+            <a href="#">Todas</a>
+            
+            <a href="#">Doces</a>
+            
+            <a href="#">Carnes</a>
+            
+            <a href="#">Massas</a>
+            
+            <a href="#">Vegano</a>
+
+    </section>
+
+    <main class="receitas" id="receitas">
         <article class="card-receita">
             <img class="card-img" src="assets/img/bolo-de-cenoura.jpg" alt="Bolo de cenoura com cobertura de chocolate">
             <div class="card-corpo">
@@ -69,5 +105,91 @@
             </div>
         </article>
     </main>
+
+<section class="sobre" id="sobre">
+
+    <div class="sobre-texto">
+        <h2>Sobre o Saborê</h2>
+
+        <p>
+            O Saborê foi criado para facilitar a busca por receitas
+            e ajudar você a descobrir novos pratos para preparar
+            em casa.
+        </p>
+
+        <p>
+            Aqui você encontra receitas organizadas por categorias,
+            níveis de dificuldade e diferentes tipos de pratos.
+        </p>
+
+        <a href="#receitas" class="botao">Ver receitas</a>
+    </div>
+
+    <div class="sobre-info">
+
+        <div class="info">
+            <h3>Variedade</h3>
+            <p>
+                Receitas doces, salgadas, massas, carnes e muito mais.
+            </p>
+        </div>
+
+        <div class="info">
+            <h3>Fácil de encontrar</h3>
+            <p>
+                Encontre receitas de forma simples e organizada.
+            </p>
+        </div>
+
+        <div class="info">
+            <h3>Para todos</h3>
+            <p>
+                Opções para diferentes níveis de experiência na cozinha.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer class="footer">
+
+    <div class="footer-conteudo">
+
+        <div class="footer-marca">
+            <img src="assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="Logo do Saborê">
+
+            <div>
+                <h2>Saborê</h2>
+                <p>Sua página de receitas favoritas.</p>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h3>Navegação</h3>
+            <a href="#">Início</a>
+            <a href="#receitas">Receitas principais</a>
+            <a href="#sobre">Sobre o Saborê</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Explore</h3>
+            <a href="#">Doces</a>
+            <a href="#">Carnes</a>
+            <a href="#">Massas</a>
+            <a href="#">Vegano</a>
+        </div>
+
+    </div>
+
+    <div class="footer-final">
+        <p>© 2026 Saborê. Projeto desenvolvido para fins acadêmicos.</p>
+    </div>
+
+</footer>
+
+
+
 </body>
 </html>
