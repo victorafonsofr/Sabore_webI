@@ -318,6 +318,13 @@ input {
     gap: 16px;
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
     margin: auto;
+    margin-top: 70px;
+}
+
+.login-box label{
+    color: #7a5200;
+    font-weight: bolder;
+    font-size: 1.3rem;
 }
 
 .input-login {
@@ -335,8 +342,7 @@ input {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    min-height: 100vh;
+    min-height: 78vh;
     padding: 80px;
     background-image: url(img/AdobeStock_115079322-scaled.webp);
     color: white;
