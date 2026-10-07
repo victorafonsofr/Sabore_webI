@@ -336,8 +336,8 @@ input {
     align-items: center;
     justify-content: space-between;
 
-    min-height: 500px;
-    padding: 77px;
+    min-height: 100vh;
+    padding: 80px;
     background-image: url(img/AdobeStock_115079322-scaled.webp);
     color: white;
     background-size: cover;
