@@ -430,3 +430,179 @@ input {
     background-color: #f5f5f5;
     color: #d35400;
 }
+
+.main-colorida {
+    background-color: #fcf8f2;
+    padding: 32px 16px 60px;
+}
+ 
+.receita {
+    max-width: 820px;
+    margin: 0 auto;
+    background-color: white;
+    border: 1px solid rgb(231, 231, 184);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(54, 46, 46, 0.1);
+    overflow: hidden;
+    color: rgb(54, 46, 46);
+}
+ 
+.receita-voltar {
+    display: inline-block;
+    margin: 20px 32px 16px;
+    color: #7a5200;
+    font-weight: 700;
+    text-decoration: none;
+}
+ 
+.receita-voltar:hover {
+    color: #d35400;
+    text-decoration: underline;
+}
+ 
+.foto-receita {
+    display: block;
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    background-color: bisque;
+}
+ 
+.receita-cabecalho {
+    padding: 28px 32px 8px;
+    text-align: center;
+}
+ 
+.titulo-centralizado {
+    margin: 0 0 14px;
+    font-size: 41.5px;
+    line-height: 1.1;
+    text-align: center;
+}
+ 
+.receita-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ 
+.receita-info li {
+    padding: 6px 14px;
+    background-color: #fdeab8;
+    color: #7a5200;
+    border-radius: 999px;
+    font-size: 14.5px;
+    font-weight: 700;
+}
+
+.receita-info li.complexidade {
+    margin-top: 0;
+    align-self: auto;
+    font-size: 14.5px;
+    padding: 6px 14px;
+}
+ 
+.receita-bloco {
+    padding: 28px 32px 0;
+}
+ 
+.receita-bloco:last-child {
+    padding-bottom: 36px;
+}
+ 
+.receita-bloco h2 {
+    margin: 0 0 18px;
+    padding-bottom: 8px;
+    font-size: 25.5px;
+    border-bottom: 3px solid #e1b12c;
+    display: inline-block;
+}
+ 
+.receita-ingredientes {
+    margin-top: 12px;
+}
+ 
+.lista-ingredientes {
+    margin: 0;
+    padding: 18px 22px;
+    list-style: none;
+    background-color: #fff6dc;
+    border-radius: 12px;
+}
+ 
+.lista-ingredientes li {
+    padding: 6px 0;
+}
+ 
+.lista-ingredientes label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    cursor: pointer;
+}
+ 
+.lista-ingredientes input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    accent-color: #e1b12c;
+    cursor: pointer;
+}
+ 
+.lista-ingredientes label:has(input:checked) {
+    color: #9a9187;
+    text-decoration: line-through;
+}
+ 
+.passos {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: passo;
+}
+ 
+.passos li {
+    position: relative;
+    margin-bottom: 22px;
+    padding-left: 56px;
+    counter-increment: passo;
+}
+ 
+.passos li::before {
+    content: counter(passo);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e1b12c;
+    color: white;
+    border-radius: 50%;
+    font-weight: 700;
+}
+ 
+.passos strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 17.5px;
+    color: #7a5200;
+}
+ 
+.passos p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+a {
+  text-decoration: none;
+}
