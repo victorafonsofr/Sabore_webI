@@ -1,12 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* ============ Variáveis ============ */
+:root {
+    /* Paleta base */
+    --areia: rgb(231, 231, 184);
+    --bisque: bisque;
+    --ouro: #d19b54;
+    --marrom: #7a5200;
+    --marrom-escuro: rgb(63, 38, 7);
+    --texto: rgb(54, 46, 46);
+    --texto-hero: #1a1919;
+    --linho: #e4ddcb;
+    --fundo: #fbfaf6;
+    --favorito: #b3261e;
+
+    /* Neutros */
+    --off-white: #f8f7f3;
+    --pedra: #8f8977;
+    --cinza-escuro: #4a4a4a;
+    --cinza-medio: rgb(190, 190, 190);
+    --cinza-claro: rgb(220, 220, 220);
+    --cinza-borda: rgb(100, 90, 90);
+    --cinza-hover: #f5f5f5;
+
+    /* Níveis de complexidade */
+    --facil-bg: #d8efd3;
+    --facil-texto: #1f5a1a;
+    --medio-bg: #fdeab8;
+    --dificil-bg: #f7d0cc;
+    --dificil-texto: #8a1c14;
+
+    /* Login */
+    --login-bg: #ffeaa7;
+    --input-bg: #ccb888;
+    --dourado: #e1b12c;
+    --dourado-escuro: #c49c23;
+    --laranja: #d35400;
+
+    /* Layout */
+    --largura-max: 1100px;
+    --pad-x: 32px;
+    --raio: 12px;
+    --raio-sm: 8px;
+    --raio-pilula: 999px;
+
+    /* Tipografia */
+    --fonte: "Bricolage Grotesque", "Roboto", sans-serif;
+}
+
+/* ============ Base ============ */
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: var(--fonte);
     margin: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* ============ Navbar ============ */
 nav {
-    background-image: linear-gradient(45deg, rgb(231, 231, 184), bisque);
+    background-image: linear-gradient(45deg, var(--areia), var(--bisque));
     font-size: 20px;
     position: sticky;
     top: 0;
@@ -18,7 +72,6 @@ nav {
     font-weight: bolder;
     align-items: center;
 }
-
 
 .pesquisar {
     margin-left: auto;
@@ -35,10 +88,13 @@ nav {
 .nav-bar a {
     text-decoration: none;
     padding: 20px;
-    color: rgb(54, 46, 46);
+    color: var(--texto);
 }
 
 .nav-bar a:hover {
+    text-decoration: underline var(--marrom-escuro);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 10px;
     color: black;
     font-weight: bold;
 }
@@ -54,8 +110,11 @@ nav {
     width: 40px;
     height: 40px;
     margin: 0 10px;
+    background-color: var(--marrom-escuro);
+    border-radius: 40px;
 }
 
+/* ============ Hero ============ */
 .hero {
     display: flex;
     align-items: center;
@@ -63,8 +122,8 @@ nav {
 
     min-height: 500px;
     padding: 50px;
-    background-color: #d19b54;
-    color: white;
+    background-color: var(--ouro);
+    color: var(--texto-hero);
 }
 
 .hero-texto {
@@ -85,49 +144,53 @@ nav {
     display: inline-block;
     padding: 12px 25px;
 
-    background-color: #8f8977;
+    background-color: var(--marrom);
     color: white;
 
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: var(--raio-sm);
 }
 
 .botao:hover {
-    background-color: #7a5200;
+    background-color: var(--pedra);
 }
 
 .hero-imagem img {
     width: 400px;
 }
 
+/* ============ Categorias ============ */
 .categorias {
     display: flex;
-    justify-content: flex-start;
-    background-color: #7a5200;
-    height: 100px;
-    width: 100%;
-
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding: 20px var(--pad-x);
+    justify-content: flex-end;
+    background-color: var(--marrom);
 }
 
 .categorias a {
-
-    padding-top: 20px;
-    margin: 20px;
     text-decoration: none;
     font-weight: bolder;
-    color: #f8f7f3;
+    color: var(--off-white);
+    border: var(--bisque) 1px solid;
+    border-radius: var(--raio-pilula);
+    padding: 9px 20px;
 }
 
 .categorias a:hover {
-    color: olive;
+    color: var(--cinza-escuro);
+    background-color: var(--bisque);
 }
 
+/* ============ Receitas ============ */
 .receitas {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 24px;
-    padding: 32px;
-    max-width: 1100px;
+    padding: var(--pad-x);
+    max-width: var(--largura-max);
     margin: 0 auto;
 }
 
@@ -135,8 +198,8 @@ nav {
     display: flex;
     flex-direction: column;
     background: white;
-    border: 1px solid rgb(231, 231, 184);
-    border-radius: 12px;
+    border: 1px solid var(--areia);
+    border-radius: var(--raio);
     overflow: hidden;
 }
 
@@ -144,7 +207,7 @@ nav {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    background-color: bisque;
+    background-color: var(--bisque);
 }
 
 .card-corpo {
@@ -158,13 +221,13 @@ nav {
 .card-titulo {
     margin: 0;
     font-size: 1.2rem;
-    color: rgb(54, 46, 46);
+    color: var(--texto);
 }
 
 .card-ingredientes {
     margin: 0;
     padding-left: 18px;
-    color: rgb(54, 46, 46);
+    color: var(--texto);
     font-size: 0.95rem;
     line-height: 1.5;
 }
@@ -173,32 +236,33 @@ nav {
     align-self: flex-start;
     margin-top: auto;
     padding: 4px 12px;
-    border-radius: 999px;
+    border-radius: var(--raio-pilula);
     font-size: 0.85rem;
     font-weight: 700;
 }
 
 .complexidade.facil {
-    background: #d8efd3;
-    color: #1f5a1a;
+    background: var(--facil-bg);
+    color: var(--facil-texto);
 }
 
 .complexidade.medio {
-    background: #fdeab8;
-    color: #7a5200;
+    background: var(--medio-bg);
+    color: var(--marrom);
 }
 
 .complexidade.dificil {
-    background: #f7d0cc;
-    color: #8a1c14;
+    background: var(--dificil-bg);
+    color: var(--dificil-texto);
 }
 
+/* ============ Sobre ============ */
 .sobre {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 50px;
-    background-color: #e4ddcb;
+    background-color: var(--linho);
     width: auto;
     padding: 50px 30px;
 }
@@ -210,11 +274,11 @@ nav {
 .sobre-texto h2 {
     margin-top: 0;
     font-size: 2rem;
-    color: rgb(54, 46, 46);
+    color: var(--texto);
 }
 
 .sobre-texto p {
-    color: rgb(54, 46, 46);
+    color: var(--texto);
     line-height: 1.6;
 }
 
@@ -222,20 +286,21 @@ nav {
     text-align: center;
     padding: 20px;
     background-color: white;
-    border-radius: 12px;
+    border-radius: var(--raio);
     margin: 10px;
 }
 
+/* ============ Footer ============ */
 .footer {
     margin-top: 60px;
-    padding: 40px 32px 20px;
+    padding: 40px var(--pad-x) 20px;
 
-    background-color: rgb(54, 46, 46);
+    background-color: var(--texto);
     color: white;
 }
 
 .footer-conteudo {
-    max-width: 1100px;
+    max-width: var(--largura-max);
     margin: 0 auto;
 
     display: flex;
@@ -260,7 +325,7 @@ nav {
 
 .footer-marca p {
     margin: 5px 0 0;
-    color: rgb(220, 220, 220);
+    color: var(--cinza-claro);
 }
 
 .footer-links {
@@ -274,7 +339,7 @@ nav {
 }
 
 .footer-links a {
-    color: rgb(220, 220, 220);
+    color: var(--cinza-claro);
     text-decoration: none;
 }
 
@@ -284,32 +349,32 @@ nav {
 }
 
 .footer-final {
-    max-width: 1100px;
+    max-width: var(--largura-max);
     margin: 35px auto 0;
     padding-top: 20px;
 
-    border-top: 1px solid rgb(100, 90, 90);
+    border-top: 1px solid var(--cinza-borda);
     text-align: center;
 }
 
 .footer-final p {
     margin: 0;
     font-size: 0.85rem;
-    color: rgb(190, 190, 190);
+    color: var(--cinza-medio);
 }
 
-
+/* ============ Login / cadastro ============ */
 input {
     font-size: 20px;
     width: 100%;
     padding: 10px;
-    background-color: #ccb888;
+    background-color: var(--input-bg);
     border: none;
     border-radius: 4px;
 }
 
 .login-box {
-    background-color: #ffeaa7;
+    background-color: var(--login-bg);
     border-radius: 20px;
     padding: 30px 25px;
     width: 320px;
@@ -321,8 +386,8 @@ input {
     margin-top: 70px;
 }
 
-.login-box label{
-    color: #7a5200;
+.login-box label {
+    color: var(--marrom);
     font-weight: bolder;
     font-size: 1.3rem;
 }
@@ -354,10 +419,10 @@ input {
 .btn-entrar {
     width: 100%;
     padding: 12px;
-    background-color: #e1b12c;
+    background-color: var(--dourado);
     color: #ffffff;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--raio-sm);
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -367,7 +432,7 @@ input {
 }
 
 .btn-entrar:hover {
-    background-color: #c49c23;
+    background-color: var(--dourado-escuro);
 }
 
 .divider {
@@ -379,12 +444,12 @@ input {
 .footer-text {
     text-align: center;
     font-size: 13px;
-    color: #4a4a4a;
+    color: var(--cinza-escuro);
     margin: 0;
 }
 
 .footer-text a {
-    color: #d35400;
+    color: var(--laranja);
     text-decoration: none;
     font-weight: bold;
 }
@@ -393,6 +458,7 @@ input {
     text-decoration: underline;
 }
 
+/* ============ Dropdown ============ */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -605,4 +671,6 @@ input {
 
 a {
   text-decoration: none;
+    background-color: var(--cinza-hover);
+    color: var(--laranja);
 }
