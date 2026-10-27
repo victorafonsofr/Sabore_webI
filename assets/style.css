@@ -671,6 +671,5 @@ input {
 
 a {
   text-decoration: none;
-    background-color: var(--cinza-hover);
     color: var(--laranja);
 }
