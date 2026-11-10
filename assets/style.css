@@ -960,3 +960,5 @@ input:where(:not([type="checkbox"]):not([type="radio"])) {
         transition: none !important;
     }
 }
+
+/*comentaiozin*/
