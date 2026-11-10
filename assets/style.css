@@ -37,6 +37,11 @@
     --dourado-escuro: #c49c23;
     --laranja: #d35400;
 
+    /* Página de receita (antes estavam fixas no código) */
+    --creme: #fff6dc;
+    --fundo-receita: #fcf8f2;
+    --riscado: #9a9187;
+
     /* Layout */
     --largura-max: 1100px;
     --pad-x: 32px;
@@ -49,6 +54,13 @@
 }
 
 /* ============ Base ============ */
+/* Padding e borda passam a ser contados dentro da largura/altura */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: var(--fonte);
     margin: 0;
@@ -56,6 +68,25 @@ body {
 
 html {
     scroll-behavior: smooth;
+}
+
+/* Imagens nunca passam do tamanho do container */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: var(--laranja);
+}
+
+/* Foco visível para navegação por teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--dourado);
+    outline-offset: 2px;
 }
 
 /* ============ Navbar ============ */
@@ -83,6 +114,11 @@ nav {
 .input {
     margin: 0 8px 0 0;
     height: 23px;
+}
+
+.pesquisar .input {
+    width: auto;
+    min-width: 0;
 }
 
 .nav-bar a {
@@ -120,7 +156,8 @@ nav {
     align-items: center;
     justify-content: space-between;
 
-    min-height: 500px;
+    /* 500px de conteúdo + 100px de padding (mesma altura de antes) */
+    min-height: 600px;
     padding: 50px;
     background-color: var(--ouro);
     color: var(--texto-hero);
@@ -156,7 +193,8 @@ nav {
 }
 
 .hero-imagem img {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
 }
 
 /* ============ Categorias ============ */
@@ -187,10 +225,11 @@ nav {
 /* ============ Receitas ============ */
 .receitas {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
     gap: 24px;
     padding: var(--pad-x);
-    max-width: var(--largura-max);
+    /* largura útil de 1100px + padding dos dois lados */
+    max-width: calc(var(--largura-max) + 64px);
     margin: 0 auto;
 }
 
@@ -364,7 +403,9 @@ nav {
 }
 
 /* ============ Login / cadastro ============ */
-input {
+/* Checkbox e radio ficam de fora para manter o tamanho próprio.
+   :where() zera a especificidade, assim classes como .input-login continuam vencendo */
+input:where(:not([type="checkbox"]):not([type="radio"])) {
     font-size: 20px;
     width: 100%;
     padding: 10px;
@@ -377,7 +418,9 @@ input {
     background-color: var(--login-bg);
     border-radius: 20px;
     padding: 30px 25px;
-    width: 320px;
+    /* 320px de conteúdo + 50px de padding (mesmo tamanho visual de antes) */
+    width: 370px;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -407,7 +450,8 @@ input {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 78vh;
+    /* 78vh de conteúdo + 160px de padding (mesma altura de antes) */
+    min-height: calc(78vh + 160px);
     padding: 80px;
     background-image: url(img/AdobeStock_115079322-scaled.webp);
     color: white;
@@ -459,12 +503,8 @@ input {
 }
 
 /* ============ Dropdown ============ */
-.dropdown{
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-user{
+.dropdown,
+.dropdown-user {
     position: relative;
     display: inline-block;
 }
@@ -479,102 +519,100 @@ input {
     gap: 8px;
 }
 
+.dropdown-content,
+.dropdown-content-user {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background-color: #ffffff;
+    /* 160px de conteúdo + 16px de padding (mesmo tamanho de antes) */
+    min-width: 176px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    padding: 8px;
+    z-index: 1000;
+}
+
 .dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
     left: 0;
-    background-color: #ffffff;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
-    border-radius: 6px;
-    padding: 8px;
-    z-index: 1000;
 }
 
-.dropdown-content-user{
-    display: none;
-    position: absolute;
-    top: 100%;
+.dropdown-content-user {
     right: 0;
-    background-color: #ffffff;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
-    border-radius: 6px;
-    padding: 8px;
-    z-index: 1000;
 }
 
-.dropdown:hover .dropdown-content {
+/* Aberto por clique (celular/touch, via JS) */
+.dropdown.aberto .dropdown-content,
+.dropdown-user.aberto .dropdown-content-user {
     display: flex;
     flex-direction: column;
 }
 
-.dropdown-user:hover .dropdown-content-user {
-    display: flex;
-    flex-direction: column;
+/* Aberto por hover: só em dispositivos com mouse */
+@media (hover: hover) {
+    .dropdown:hover .dropdown-content,
+    .dropdown-user:hover .dropdown-content-user {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
-
-.dropdown-content a:hover {
-    background-color: #f5f5f5;
-    color: #d35400;
-}
-
+.dropdown-content a:hover,
 .dropdown-content-user a:hover {
-    background-color: #f5f5f5;
-    color: #d35400;
+    background-color: var(--cinza-hover);
+    color: var(--laranja);
 }
 
+/* ============ Página da receita ============ */
 .main-colorida {
-    background-color: #fcf8f2;
+    background-color: var(--fundo-receita);
     padding: 32px 16px 60px;
 }
- 
+
 .receita {
     max-width: 820px;
     margin: 0 auto;
     background-color: white;
-    border: 1px solid rgb(231, 231, 184);
+    border: 1px solid var(--areia);
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(54, 46, 46, 0.1);
     overflow: hidden;
-    color: rgb(54, 46, 46);
+    color: var(--texto);
 }
- 
+
 .receita-voltar {
     display: inline-block;
     margin: 20px 32px 16px;
-    color: #7a5200;
+    color: var(--marrom);
     font-weight: 700;
     text-decoration: none;
 }
- 
+
 .receita-voltar:hover {
-    color: #d35400;
+    color: var(--laranja);
     text-decoration: underline;
 }
- 
+
 .foto-receita {
     display: block;
     width: 100%;
     height: 380px;
     object-fit: cover;
-    background-color: bisque;
+    background-color: var(--bisque);
 }
- 
+
 .receita-cabecalho {
     padding: 28px 32px 8px;
     text-align: center;
 }
- 
+
 .titulo-centralizado {
     margin: 0 0 14px;
     font-size: 41.5px;
     line-height: 1.1;
     text-align: center;
 }
- 
+
 .receita-info {
     display: flex;
     justify-content: center;
@@ -584,12 +622,12 @@ input {
     padding: 0;
     list-style: none;
 }
- 
+
 .receita-info li {
     padding: 6px 14px;
-    background-color: #fdeab8;
-    color: #7a5200;
-    border-radius: 999px;
+    background-color: var(--medio-bg);
+    color: var(--marrom);
+    border-radius: var(--raio-pilula);
     font-size: 14.5px;
     font-weight: 700;
 }
@@ -600,39 +638,39 @@ input {
     font-size: 14.5px;
     padding: 6px 14px;
 }
- 
+
 .receita-bloco {
     padding: 28px 32px 0;
 }
- 
+
 .receita-bloco:last-child {
     padding-bottom: 36px;
 }
- 
+
 .receita-bloco h2 {
     margin: 0 0 18px;
     padding-bottom: 8px;
     font-size: 25.5px;
-    border-bottom: 3px solid #e1b12c;
+    border-bottom: 3px solid var(--dourado);
     display: inline-block;
 }
- 
+
 .receita-ingredientes {
     margin-top: 12px;
 }
- 
+
 .lista-ingredientes {
     margin: 0;
     padding: 18px 22px;
     list-style: none;
-    background-color: #fff6dc;
-    border-radius: 12px;
+    background-color: var(--creme);
+    border-radius: var(--raio);
 }
- 
+
 .lista-ingredientes li {
     padding: 6px 0;
 }
- 
+
 .lista-ingredientes label {
     display: flex;
     align-items: center;
@@ -640,35 +678,35 @@ input {
     font-size: 17px;
     cursor: pointer;
 }
- 
+
 .lista-ingredientes input[type="checkbox"] {
     width: 20px;
     height: 20px;
     padding: 0;
     margin: 0;
-    accent-color: #e1b12c;
+    accent-color: var(--dourado);
     cursor: pointer;
 }
- 
+
 .lista-ingredientes label:has(input:checked) {
-    color: #9a9187;
+    color: var(--riscado);
     text-decoration: line-through;
 }
- 
+
 .passos {
     margin: 0;
     padding: 0;
     list-style: none;
     counter-reset: passo;
 }
- 
+
 .passos li {
     position: relative;
     margin-bottom: 22px;
     padding-left: 56px;
     counter-increment: passo;
 }
- 
+
 .passos li::before {
     content: counter(passo);
     position: absolute;
@@ -679,26 +717,248 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #e1b12c;
+    background-color: var(--dourado);
     color: white;
     border-radius: 50%;
     font-weight: 700;
 }
- 
+
 .passos strong {
     display: block;
     margin-bottom: 4px;
     font-size: 17.5px;
-    color: #7a5200;
+    color: var(--marrom);
 }
- 
+
 .passos p {
     margin: 0;
     font-size: 17px;
     line-height: 1.65;
 }
 
-a {
-  text-decoration: none;
-    color: var(--laranja);
+/* =====================================================
+   RESPONSIVIDADE
+   (sempre no final do arquivo, para sobrescrever o resto)
+   ===================================================== */
+
+/* ---------- Tablet e celular (até 900px) ---------- */
+@media (max-width: 900px) {
+
+    /* Navbar: itens quebram em várias linhas */
+    nav {
+        font-size: 18px;
+    }
+
+    .nav-bar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-bar a {
+        padding: 12px 14px;
+    }
+
+    .nav-bar a:hover {
+        text-underline-offset: 6px;
+    }
+
+    /* Pesquisa ocupa a linha inteira, embaixo */
+    .pesquisar {
+        order: 99;
+        width: 100%;
+        margin-left: 0;
+        padding: 8px 16px;
+    }
+
+    .pesquisar .input {
+        flex: 1;
+    }
+
+    /* Hero */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        min-height: auto;
+        padding: 30px 20px;
+    }
+
+    .hero-texto {
+        max-width: 100%;
+    }
+
+    .hero-texto h1 {
+        font-size: 32px;
+    }
+
+    .hero-texto p {
+        font-size: 18px;
+    }
+
+    /* Sobre */
+    .sobre {
+        flex-direction: column;
+        gap: 24px;
+        padding: 30px 20px;
+    }
+
+    .sobre-texto {
+        max-width: 100%;
+    }
+
+    /* Footer */
+    .footer-conteudo {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    /* Login */
+    .login-background {
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+        min-height: 78vh;
+        padding: 40px 20px;
+    }
 }
+
+/* ---------- Celular (até 600px) ---------- */
+@media (max-width: 600px) {
+    :root {
+        --pad-x: 16px;
+    }
+
+    nav {
+        font-size: 16px;
+    }
+
+    .nav-bar a {
+        padding: 10px;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 24px 16px;
+    }
+
+    /* Categorias: centralizadas */
+    .categorias {
+        justify-content: center;
+        padding: 16px var(--pad-x);
+        gap: 8px;
+    }
+
+    .categorias a {
+        padding: 8px 16px;
+        font-size: 0.95rem;
+    }
+
+    /* Grid de receitas */
+    .receitas {
+        gap: 16px;
+    }
+
+    /* Sobre */
+    .sobre-texto h2 {
+        font-size: 1.6rem;
+    }
+
+    /* Footer */
+    .footer {
+        margin-top: 40px;
+    }
+
+    .footer-marca {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Login */
+    .login-background {
+        padding: 20px;
+    }
+
+    .login-box {
+        width: 100%;
+        max-width: 370px;
+        margin: 30px auto 0;
+        padding: 24px 18px;
+    }
+
+    .input-login {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    /* Página da receita */
+    .main-colorida {
+        padding: 16px 8px 40px;
+    }
+
+    .receita-voltar {
+        margin: 16px 20px 12px;
+    }
+
+    .foto-receita {
+        height: 220px;
+    }
+
+    .receita-cabecalho {
+        padding: 20px 20px 8px;
+    }
+
+    .titulo-centralizado {
+        font-size: 28px;
+    }
+
+    .receita-bloco {
+        padding: 22px 20px 0;
+    }
+
+    .receita-bloco:last-child {
+        padding-bottom: 28px;
+    }
+
+    .receita-bloco h2 {
+        font-size: 22px;
+    }
+
+    .lista-ingredientes {
+        padding: 14px 16px;
+    }
+
+    .lista-ingredientes label {
+        font-size: 16px;
+    }
+
+    .passos li {
+        padding-left: 48px;
+    }
+
+    .passos li::before {
+        width: 34px;
+        height: 34px;
+    }
+
+    .passos p {
+        font-size: 16px;
+    }
+}
+
+/* Respeita quem prefere menos animação */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
+}
+
+/*comentaiozin*/
