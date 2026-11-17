@@ -1,0 +1,188 @@
+/* Saborê - favoritas. Depende das variáveis de :root em style.css.
+   Carregar DEPOIS de style.css. Classes novas usam o prefixo "fav-". */
+
+/* ============ Botão de coração (nos cards) ============ */
+.card-receita {
+    position: relative;
+}
+
+.fav-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--pedra);
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(54, 46, 46, 0.3);
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.fav-btn svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linejoin: round;
+}
+
+.fav-btn:hover {
+    transform: scale(1.08);
+    color: var(--favorito);
+}
+
+.fav-btn[aria-pressed="true"] {
+    color: var(--favorito);
+}
+
+.fav-btn[aria-pressed="true"] svg {
+    fill: currentColor;
+}
+
+/* ============ Item ativo no menu ============ */
+.nav-bar a[aria-current="page"] {
+    text-decoration: underline var(--marrom-escuro);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 10px;
+    color: black;
+}
+
+/* ============ Cabeçalho da página ============ */
+.fav-cabecalho {
+    background-color: var(--linho);
+    color: var(--texto);
+    /* alinha o conteúdo com a grade de .receitas */
+    padding: 40px max(var(--pad-x), calc((100% - var(--largura-max)) / 2)) 24px;
+}
+
+.fav-cabecalho h1 {
+    margin: 0 0 6px;
+    font-size: 2.4rem;
+}
+
+.fav-cabecalho p {
+    margin: 0;
+}
+
+.fav-barra {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.fav-filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.fav-filtros[hidden],
+.fav-limpar[hidden],
+.fav-vazio[hidden],
+.fav-sem-resultado[hidden],
+#lista-favoritas[hidden] {
+    display: none;
+}
+
+.fav-filtros button,
+.fav-limpar {
+    font: inherit;
+    font-weight: 700;
+    padding: 8px 18px;
+    border: 1px solid var(--marrom);
+    border-radius: var(--raio-pilula);
+    background: white;
+    color: var(--marrom);
+    cursor: pointer;
+}
+
+.fav-filtros button:hover {
+    background: var(--bisque);
+}
+
+.fav-filtros button[aria-pressed="true"] {
+    background: var(--marrom);
+    color: white;
+}
+
+.fav-limpar {
+    margin-left: auto;
+    border-color: var(--favorito);
+    color: var(--favorito);
+}
+
+.fav-limpar:hover {
+    background: var(--favorito);
+    color: white;
+}
+
+.fav-aviso {
+    min-height: 1.5em;
+    margin-top: 12px;
+}
+
+.fav-desfazer {
+    font: inherit;
+    font-weight: 700;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--marrom);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.fav-desfazer:hover {
+    color: var(--laranja);
+}
+
+/* ============ Estados vazios ============ */
+.fav-vazio,
+.fav-sem-resultado {
+    max-width: 520px;
+    margin: 48px auto 24px;
+    padding: 0 var(--pad-x);
+    text-align: center;
+    color: var(--texto);
+}
+
+.fav-vazio svg {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 12px;
+    fill: none;
+    stroke: var(--favorito);
+    stroke-width: 1.6;
+    stroke-linejoin: round;
+}
+
+.fav-vazio h2,
+.fav-sem-resultado h2 {
+    margin: 0 0 8px;
+}
+
+.fav-vazio p,
+.fav-sem-resultado p {
+    margin: 0 0 20px;
+}
+
+/* Reduced motion já é tratado no fim do style.css (transition: none !important) */
+
+/* ============ Card com link (<a> envolve imagem + corpo) ============ */
+.card-receita > a {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    color: inherit;
+}
+
+.footer{
+    min-height: 50vh;
+}

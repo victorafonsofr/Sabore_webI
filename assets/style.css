@@ -64,6 +64,7 @@
 body {
     font-family: var(--fonte);
     margin: 0;
+    min-height: 100vh;
 }
 
 html {
@@ -280,6 +281,31 @@ nav {
     font-weight: 700;
 }
 
+.btn-curtida {
+  align-self: flex-end;
+  padding: 4px;
+  background-color: #f0f2f5;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top:auto ;
+}
+
+.btn-curtida:hover {
+  background-color: #e4e6eb;
+}
+
+/* Estado curtido (ativo) */
+.btn-curtida.liked {
+  background-color: var(--laranja);
+  border-color:  var( --dourado);
+
+}
+
+.btn-curtida.liked .coracao {
+  transform: scale(1.2);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 .complexidade.facil {
     background: var(--facil-bg);
     color: var(--facil-texto);
@@ -333,7 +359,6 @@ nav {
 .footer {
     margin-top: 60px;
     padding: 40px var(--pad-x) 20px;
-
     background-color: var(--texto);
     color: white;
 }

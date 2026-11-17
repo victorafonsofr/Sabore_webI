@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saborê - Sua página de receitas</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="shortcut icon" href="assets/icons/favicon_io (2)/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="shortcut icon" href="../assets/icons/favicon_io (2)/favicon-32x32.png" type="image/x-icon">
 </head>
 <body>
     <nav>
         <div class="nav-bar">
-            <img class="img-logo" src="assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="logo">
+         <a href="index.html"><img class="img-logo" src="../assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="logo"></a>
             <a href="#">Início</a>
             <div class="dropdown">
                 <a href="#receitas" class="dropdown-btn">Receitas principais</a>
@@ -21,17 +21,17 @@
                     <a href="#">Vegano</a>
                 </div>
             </div>
-            <a href="">Receitas favoritadas</a>
+            <a href="favoritos.html">Receitas favoritadas</a>
             <a href="#sobre">Sobre o Saborê</a>
             <div class="pesquisar">
                 <input class="input" type="text" placeholder="pesquisar...">
                 <a href="">
-                <img class="pesquisar-img" src="assets/icons/simbolo-da-interface-de-pesquisa.png" alt="lp">
+                <img class="pesquisar-img" src="../assets/icons/simbolo-da-interface-de-pesquisa.png" alt="lp">
                 </a>
             </div>
             <div class="dropdown-user">
                 <a href="login.html" class="dropdown-btn">
-                <img class="pesquisar-img" style="margin-right: 30px;" src="assets/icons/icone-perfil.png" alt="logar">
+                <img class="pesquisar-img" style="margin-right: 30px;" src="../assets/icons/icone-perfil.png" alt="logar">
                 </a>
                 <div class="dropdown-content-user">
                     <a href="#">Configurações</a>
@@ -55,7 +55,7 @@
         </div>
 
         <div class="hero-imagem">
-            <img src="assets/icons/ilustracao.png" alt="Ilustração">
+            <img src="../assets/icons/ilustracao.png" alt="Ilustração">
         </div>
     </section>
     
@@ -76,7 +76,7 @@
     <main class="receitas" id="receitas">
         <article class="card-receita">
             <a href="receita.html"> 
-            <img class="card-img" src="assets/img/bolo-de-cenoura.jpg" alt="Bolo de cenoura com cobertura de chocolate">
+            <img class="card-img" src="../assets/img/bolo-de-cenoura.jpg" alt="Bolo de cenoura com cobertura de chocolate">
             <div class="card-corpo">
                 <h2 class="card-titulo">Bolo de cenoura</h2>
                 <ul class="card-ingredientes">
@@ -87,13 +87,14 @@
                     <li>2 xícaras de açúcar</li>
                 </ul>
                 <span class="complexidade facil">Fácil</span>
+                <a class="btn-curtida" onclick="this.classList.toggle('liked')">🤎</a>
             </div>
             </a>
         </article>
 
         <article class="card-receita">
             <a href="receita_2.html">
-            <img class="card-img" src="assets/img/frango-com-quiabo.jpg" alt="Frango com quiabo em uma panela">
+            <img class="card-img" src="../assets/img/frango-com-quiabo.jpg" alt="Frango com quiabo em uma panela">
             <div class="card-corpo">
                 <h2 class="card-titulo">Frango com quiabo</h2>
                 <ul class="card-ingredientes">
@@ -104,13 +105,14 @@
                     <li>Cheiro-verde</li>
                 </ul>
                 <span class="complexidade medio">Médio</span>
+                <a class="btn-curtida" onclick="this.classList.toggle('liked')">🤎</a>
             </div>
             </a>
         </article>
 
         <article class="card-receita">
             <a href="receita_3.html">
-            <img class="card-img" src="assets/img/paella.jpg" alt="Paella com frutos do mar">
+            <img class="card-img" src="../assets/img/paella.jpg" alt="Paella com frutos do mar">
             <div class="card-corpo">
                 <h2 class="card-titulo">Paella</h2>
                 <ul class="card-ingredientes">
@@ -121,12 +123,13 @@
                     <li>Açafrão e caldo de peixe</li>
                 </ul>
                 <span class="complexidade dificil">Difícil</span>
+                <a class="btn-curtida" onclick="this.classList.toggle('liked')">🤎</a>
             </div>
             </a>
         </article>
         <article class="card-receita">
             <a href="receita.html"> 
-            <img class="card-img" src="assets/img/rosti.jpeg" alt="Rosti de Batata com Queijo">
+            <img class="card-img" src="../assets/img/rosti.jpeg" alt="Rosti de Batata com Queijo">
             <div class="card-corpo">
                 <h2 class="card-titulo">Rosti de Batata com Queijo</h2>
                 <ul class="card-ingredientes">
@@ -138,12 +141,13 @@
                     <li>pimenta</li>
                 </ul>
                 <span class="complexidade facil">Fácil</span>
+                <a class="btn-curtida" onclick="this.classList.toggle('liked')">🤎</a>
             </div>
             </a>
         </article>
         <article class="card-receita">
             <a href="receita.html"> 
-            <img class="card-img" src="assets/img/omelete.jpeg" alt="Omelete de Micro-ondas ">
+            <img class="card-img" src="../assets/img/omelete.jpeg" alt="Omelete de Micro-ondas ">
             <div class="card-corpo">
                 <h2 class="card-titulo">Omelete de Micro-ondas </h2>
                 <ul class="card-ingredientes">
@@ -154,12 +158,13 @@
                     <li>recheio a gosto (como cubos de queijo, tomate picado ou presunto)</li>
                 </ul>
                 <span class="complexidade facil">Fácil</span>
+                <a class="btn-curtida" onclick="this.classList.toggle('liked')">🤎</a>
             </div>
             </a>
         </article>
         <article class="card-receita">
             <a href="receita.html"> 
-            <img class="card-img" src="assets/img/images.jpeg" alt="Bolo de cenoura com cobertura de chocolate">
+            <img class="card-img" src="../assets/img/images.jpeg" alt="Bolo de cenoura com cobertura de chocolate">
             <div class="card-corpo">
                 <h2 class="card-titulo">Panqueca Fit de Batata-Doce </h2>
                 <ul class="card-ingredientes">
@@ -169,6 +174,7 @@
                     <li>1 colher de café de sal</li>
                 </ul>
                 <span class="complexidade facil">Fácil</span>
+                <a class="btn-curtida" onclick="this.classList.toggle('liked')">🤎</a>
             </div>
             </a>
         </article>
@@ -226,7 +232,7 @@
     <div class="footer-conteudo">
 
         <div class="footer-marca">
-            <img src="assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="Logo do Saborê">
+            <img src="../assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="Logo do Saborê">
 
             <div>
                 <h2>Saborê</h2>
