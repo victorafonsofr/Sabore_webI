@@ -5,265 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saborê - Sua página de receitas</title>
     <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/favoritos.css">
+    <link rel="stylesheet" href="../assets/app.css">
     <link rel="shortcut icon" href="../assets/icons/favicon_io (2)/favicon-32x32.png" type="image/x-icon">
 </head>
 <body>
     <nav>
         <div class="nav-bar">
-         <a href="index.html"><img class="img-logo" src="../assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="logo"></a>
-            <a href="#">Início</a>
+            <a href="index.html"><img class="img-logo" src="../assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="Logo Saborê"></a>
+            <a href="index.html">Início</a>
             <div class="dropdown">
                 <a href="#receitas" class="dropdown-btn">Receitas principais</a>
                 <div class="dropdown-content">
-                    <a href="#">Doces</a>
-                    <a href="#">Carnes</a>
-                    <a href="#">Massas</a>
-                    <a href="#">Vegano</a>
+                    <a href="#receitas">Explorar receitas</a>
                 </div>
             </div>
             <a href="favoritos.html">Receitas favoritadas</a>
             <a href="#sobre">Sobre o Saborê</a>
             <div class="pesquisar">
-                <input class="input" type="text" placeholder="pesquisar...">
-                <a href="">
-                <img class="pesquisar-img" src="../assets/icons/simbolo-da-interface-de-pesquisa.png" alt="lp">
-                </a>
+                <input class="input" type="search" placeholder="Pesquisar receitas..." aria-label="Pesquisar receitas">
+                <img class="pesquisar-img" src="../assets/icons/simbolo-da-interface-de-pesquisa.png" alt="">
             </div>
             <div class="dropdown-user">
-                <a href="login.html" class="dropdown-btn">
-                <img class="pesquisar-img" style="margin-right: 30px;" src="../assets/icons/icone-perfil.png" alt="logar">
+                <a href="login.html" class="dropdown-btn" aria-label="Entrar ou cadastrar">
+                    <img class="pesquisar-img" src="../assets/icons/icone-perfil.png" alt="Perfil">
                 </a>
                 <div class="dropdown-content-user">
-                    <a href="#">Configurações</a>
-                    <a href="login.html">Logar</a>
+                    <a href="login.html">Entrar</a>
                     <a href="cadastro.html">Cadastrar</a>
                 </div>
             </div>
         </div>
-        
     </nav>
 
     <section class="hero">
         <div class="hero-texto">
             <h1>Bem-vindo ao Saborê!</h1>
-
-            <p>
-                Aprenda a fazer suas receitas favoritas ou encontre sua próxima receita favorita!
-            </p>
-
-            <a href="#" class="botao">Explorar receitas</a>
+            <p>Aprenda a fazer suas receitas favoritas ou encontre sua próxima receita favorita!</p>
+            <a href="#receitas" class="botao">Explorar receitas</a>
         </div>
-
         <div class="hero-imagem">
-            <img src="../assets/icons/ilustracao.png" alt="Ilustração">
+            <img src="../assets/icons/ilustracao.png" alt="Ilustração de culinária">
         </div>
     </section>
-    
-    <section class="categorias">
 
-            <a href="#">Todas</a>
-            
-            <a href="#">Doces</a>
-            
-            <a href="#">Carnes</a>
-            
-            <a href="#">Massas</a>
-            
-            <a href="#">Vegano</a>
-
+    <section class="categorias" id="lista-categorias" aria-label="Filtrar receitas por categoria">
+        <a href="#receitas" data-categoria="">Todas</a>
     </section>
 
-    <main class="receitas" id="receitas">
-        <article class="card-receita">
-            <a href="receita.html"> 
-            <img class="card-img" src="../assets/img/bolo-de-cenoura.jpg" alt="Bolo de cenoura com cobertura de chocolate">
-            <div class="card-corpo">
-                <h2 class="card-titulo">Bolo de cenoura</h2>
-                <ul class="card-ingredientes">
-                    <li>3 cenouras médias</li>
-                    <li>3 ovos</li>
-                    <li>1 xícara de óleo</li>
-                    <li>2 xícaras de farinha de trigo</li>
-                    <li>2 xícaras de açúcar</li>
-                </ul>
-                <span class="complexidade facil">Fácil</span>
-                <a class="btn-curtida" onclick="this.classList.toggle('liked')">🤎</a>
-            </div>
-            </a>
-        </article>
-
-        <article class="card-receita">
-            <a href="receita_2.html">
-            <img class="card-img" src="../assets/img/frango-com-quiabo.jpg" alt="Frango com quiabo em uma panela">
-            <div class="card-corpo">
-                <h2 class="card-titulo">Frango com quiabo</h2>
-                <ul class="card-ingredientes">
-                    <li>1 kg de sobrecoxa de frango</li>
-                    <li>300 g de quiabo</li>
-                    <li>1 cebola</li>
-                    <li>3 dentes de alho</li>
-                    <li>Cheiro-verde</li>
-                </ul>
-                <span class="complexidade medio">Médio</span>
-                <a class="btn-curtida" onclick="this.classList.toggle('liked')">🤎</a>
-            </div>
-            </a>
-        </article>
-
-        <article class="card-receita">
-            <a href="receita_3.html">
-            <img class="card-img" src="../assets/img/paella.jpg" alt="Paella com frutos do mar">
-            <div class="card-corpo">
-                <h2 class="card-titulo">Paella</h2>
-                <ul class="card-ingredientes">
-                    <li>2 xícaras de arroz arbóreo</li>
-                    <li>300 g de camarão</li>
-                    <li>200 g de lula</li>
-                    <li>1 pimentão vermelho</li>
-                    <li>Açafrão e caldo de peixe</li>
-                </ul>
-                <span class="complexidade dificil">Difícil</span>
-                <a class="btn-curtida" onclick="this.classList.toggle('liked')">🤎</a>
-            </div>
-            </a>
-        </article>
-        <article class="card-receita">
-            <a href="receita.html"> 
-            <img class="card-img" src="../assets/img/rosti.jpeg" alt="Rosti de Batata com Queijo">
-            <div class="card-corpo">
-                <h2 class="card-titulo">Rosti de Batata com Queijo</h2>
-                <ul class="card-ingredientes">
-                    <li>3 batatas médias descascadas e fatiadas bem finas</li>
-                    <li>1 colher de sopa de farinha de trigo</li>
-                    <li>queijo mussarela ralado a gosto</li>
-                    <li>azeite</li>
-                    <li>sal</li>
-                    <li>pimenta</li>
-                </ul>
-                <span class="complexidade facil">Fácil</span>
-                <a class="btn-curtida" onclick="this.classList.toggle('liked')">🤎</a>
-            </div>
-            </a>
-        </article>
-        <article class="card-receita">
-            <a href="receita.html"> 
-            <img class="card-img" src="../assets/img/omelete.jpeg" alt="Omelete de Micro-ondas ">
-            <div class="card-corpo">
-                <h2 class="card-titulo">Omelete de Micro-ondas </h2>
-                <ul class="card-ingredientes">
-                    <li>2 colheres de sopa de leite</li>
-                    <li>2 ovos</li>
-                    <li>sal à gosto</li>
-                    <li>cheiro verde à gosto</li>
-                    <li>recheio a gosto (como cubos de queijo, tomate picado ou presunto)</li>
-                </ul>
-                <span class="complexidade facil">Fácil</span>
-                <a class="btn-curtida" onclick="this.classList.toggle('liked')">🤎</a>
-            </div>
-            </a>
-        </article>
-        <article class="card-receita">
-            <a href="receita.html"> 
-            <img class="card-img" src="../assets/img/images.jpeg" alt="Bolo de cenoura com cobertura de chocolate">
-            <div class="card-corpo">
-                <h2 class="card-titulo">Panqueca Fit de Batata-Doce </h2>
-                <ul class="card-ingredientes">
-                    <li>4 ovos</li>
-                    <li>2 xícaras de batata doce ralada</li>
-                    <li>4 colheres de sopa de aveia</li>
-                    <li>1 colher de café de sal</li>
-                </ul>
-                <span class="complexidade facil">Fácil</span>
-                <a class="btn-curtida" onclick="this.classList.toggle('liked')">🤎</a>
-            </div>
-            </a>
-        </article>
+    <main class="receitas" id="receitas" aria-live="polite">
+        <p class="estado-carregamento">Carregando receitas...</p>
     </main>
 
-<section class="sobre" id="sobre">
-
-    <div class="sobre-texto">
-        <h2>Sobre o Saborê</h2>
-
-        <p>
-            O Saborê foi criado para facilitar a busca por receitas
-            e ajudar você a descobrir novos pratos para preparar
-            em casa.
-        </p>
-
-        <p>
-            Aqui você encontra receitas organizadas por categorias,
-            níveis de dificuldade e diferentes tipos de pratos.
-        </p>
-
-        <a href="#receitas" class="botao">Ver receitas</a>
-    </div>
-
-    <div class="sobre-info">
-
-        <div class="info">
-            <h3>Variedade</h3>
-            <p>
-                Receitas doces, salgadas, massas, carnes e muito mais.
-            </p>
+    <section class="sobre" id="sobre">
+        <div class="sobre-texto">
+            <h2>Sobre o Saborê</h2>
+            <p>O Saborê foi criado para facilitar a busca por receitas e ajudar você a descobrir novos pratos para preparar em casa.</p>
+            <p>Aqui você encontra receitas organizadas por categorias, níveis de dificuldade e diferentes tipos de pratos.</p>
+            <a href="#receitas" class="botao">Ver receitas</a>
         </div>
-
-        <div class="info">
-            <h3>Fácil de encontrar</h3>
-            <p>
-                Encontre receitas de forma simples e organizada.
-            </p>
+        <div class="sobre-info">
+            <div class="info"><h3>Variedade</h3><p>Receitas doces, salgadas, massas, carnes e muito mais.</p></div>
+            <div class="info"><h3>Fácil de encontrar</h3><p>Encontre receitas de forma simples e organizada.</p></div>
+            <div class="info"><h3>Para todos</h3><p>Opções para diferentes níveis de experiência na cozinha.</p></div>
         </div>
+    </section>
 
-        <div class="info">
-            <h3>Para todos</h3>
-            <p>
-                Opções para diferentes níveis de experiência na cozinha.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<footer class="footer">
-
-    <div class="footer-conteudo">
-
-        <div class="footer-marca">
-            <img src="../assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="Logo do Saborê">
-
-            <div>
-                <h2>Saborê</h2>
-                <p>Sua página de receitas favoritas.</p>
+    <footer class="footer">
+        <div class="footer-conteudo">
+            <div class="footer-marca">
+                <img src="../assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="Logo do Saborê">
+                <div><h2>Saborê</h2><p>Sua página de receitas favoritas.</p></div>
             </div>
+            <div class="footer-links"><h3>Navegação</h3><a href="index.html">Início</a><a href="#receitas">Receitas principais</a><a href="#sobre">Sobre o Saborê</a></div>
+            <div class="footer-links"><h3>Conta</h3><a href="login.html">Entrar</a><a href="cadastro.html">Cadastrar</a><a href="favoritos.html">Favoritos</a></div>
         </div>
+        <div class="footer-final"><p>© 2026 Saborê. Projeto desenvolvido para fins acadêmicos.</p></div>
+    </footer>
 
-        <div class="footer-links">
-            <h3>Navegação</h3>
-            <a href="#">Início</a>
-            <a href="#receitas">Receitas principais</a>
-            <a href="#sobre">Sobre o Saborê</a>
-        </div>
-
-        <div class="footer-links">
-            <h3>Explore</h3>
-            <a href="#">Doces</a>
-            <a href="#">Carnes</a>
-            <a href="#">Massas</a>
-            <a href="#">Vegano</a>
-        </div>
-
-    </div>
-
-    <div class="footer-final">
-        <p>© 2026 Saborê. Projeto desenvolvido para fins acadêmicos.</p>
-    </div>
-
-</footer>
-
-
-
+    <script src="../scripts/dropdown.js" defer></script>
+    <script src="../scripts/app.js" defer></script>
 </body>
 </html>

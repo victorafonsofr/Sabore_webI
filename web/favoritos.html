@@ -1,48 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Receitas favoritadas - Saborê</title>
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/favoritos.css">
+    <link rel="stylesheet" href="../assets/app.css">
     <link rel="shortcut icon" href="../assets/icons/favicon_io (2)/favicon-32x32.png" type="image/x-icon">
 </head>
-
 <body>
     <nav>
         <div class="nav-bar">
-            <a href="index.html"><img class="img-logo" src="../assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="logo"></a>
+            <a href="index.html"><img class="img-logo" src="../assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="Logo Saborê"></a>
             <a href="index.html">Início</a>
-
-            <div class="dropdown">
-                <a href="index.html#receitas" class="dropdown-btn">Receitas principais</a>
-                <div class="dropdown-content">
-                    <a href="#">Doces</a>
-                    <a href="#">Carnes</a>
-                    <a href="#">Massas</a>
-                    <a href="#">Vegano</a>
-                </div>
-            </div>
-
+            <a href="index.html#receitas">Receitas principais</a>
             <a href="favoritos.html" aria-current="page">Receitas favoritadas</a>
             <a href="index.html#sobre">Sobre o Saborê</a>
-
-            <div class="pesquisar">
-                <input class="input" type="text" placeholder="pesquisar nos favoritos..." aria-label="Pesquisar nos favoritos">
-                <img class="pesquisar-img" src="../assets/icons/simbolo-da-interface-de-pesquisa.png" alt="">
-            </div>
-
+            <div class="pesquisar"><input class="input" type="search" placeholder="Pesquisar nos favoritos..." aria-label="Pesquisar nos favoritos"><img class="pesquisar-img" src="../assets/icons/simbolo-da-interface-de-pesquisa.png" alt=""></div>
             <div class="dropdown-user">
-                <a href="login.html" class="dropdown-btn">
-                    <img class="pesquisar-img" style="margin-right: 30px;" src="../assets/icons/icone-perfil.png" alt="logar">
-                </a>
-                <div class="dropdown-content-user">
-                    <a href="#">Configurações</a>
-                    <a href="login.html">Logar</a>
-                    <a href="cadastro.html">Cadastrar</a>
-                </div>
+                <a href="login.html" class="dropdown-btn" aria-label="Entrar ou cadastrar"><img class="pesquisar-img" src="../assets/icons/icone-perfil.png" alt="Perfil"></a>
+                <div class="dropdown-content-user"><a href="login.html">Entrar</a><a href="cadastro.html">Cadastrar</a></div>
             </div>
         </div>
     </nav>
@@ -50,7 +28,6 @@
     <header class="fav-cabecalho">
         <h1>Receitas favoritadas</h1>
         <p id="fav-contagem"></p>
-
         <div class="fav-barra">
             <div class="fav-filtros" id="fav-filtros" role="group" aria-label="Filtrar por dificuldade" hidden>
                 <button type="button" data-nivel="todas" aria-pressed="true">Todas</button>
@@ -60,59 +37,30 @@
             </div>
             <button type="button" class="fav-limpar" id="fav-limpar" hidden>Remover todas</button>
         </div>
-
         <p class="fav-aviso" id="fav-aviso" role="status" aria-live="polite"></p>
     </header>
 
-    <main class="receitas" id="lista-favoritas"></main>
+    <main class="receitas" id="lista-favoritas" aria-live="polite"></main>
 
     <section class="fav-vazio" id="fav-vazio" hidden>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 2.7 5 6 5c2 0 3.4 1.1 4.2 2.4h3.6C14.6 6.1 16 5 18 5c3.3 0 5.1 3.4 3.6 6.8C19.5 16.4 12 21 12 21z" />
-        </svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 2.7 5 6 5c2 0 3.4 1.1 4.2 2.4h3.6C14.6 6.1 16 5 18 5c3.3 0 5.1 3.4 3.6 6.8C19.5 16.4 12 21 12 21z" /></svg>
         <h2>Nenhuma receita favoritada ainda</h2>
-        <p>Toque no coração de uma receita para guardá-la aqui.</p>
+        <p>Selecione o coração de uma receita para guardá-la aqui.</p>
         <a href="index.html#receitas" class="botao">Explorar receitas</a>
     </section>
 
-    <section class="fav-sem-resultado" id="fav-sem-resultado" hidden>
-        <h2>Nada encontrado</h2>
-        <p>Nenhuma receita favoritada combina com esse filtro ou pesquisa.</p>
-    </section>
+    <section class="fav-sem-resultado" id="fav-sem-resultado" hidden><h2>Nada encontrado</h2><p>Nenhuma receita favoritada combina com esse filtro ou pesquisa.</p></section>
 
     <footer class="footer">
         <div class="footer-conteudo">
-            <div class="footer-marca">
-                <img src="../assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="Logo do Saborê">
-                <div>
-                    <h2>Saborê</h2>
-                    <p>Sua página de receitas favoritas.</p>
-                </div>
-            </div>
-
-            <div class="footer-links">
-                <h3>Navegação</h3>
-                <a href="index.html">Início</a>
-                <a href="index.html#receitas">Receitas principais</a>
-                <a href="favoritos.html">Receitas favoritadas</a>
-                <a href="index.html#sobre">Sobre o Saborê</a>
-            </div>
-
-            <div class="footer-links">
-                <h3>Explore</h3>
-                <a href="#">Doces</a>
-                <a href="#">Carnes</a>
-                <a href="#">Massas</a>
-                <a href="#">Vegano</a>
-            </div>
+            <div class="footer-marca"><img src="../assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="Logo do Saborê"><div><h2>Saborê</h2><p>Sua página de receitas favoritas.</p></div></div>
+            <div class="footer-links"><h3>Navegação</h3><a href="index.html">Início</a><a href="index.html#receitas">Receitas principais</a><a href="index.html#sobre">Sobre o Saborê</a></div>
+            <div class="footer-links"><h3>Conta</h3><a href="login.html">Entrar</a><a href="cadastro.html">Cadastrar</a></div>
         </div>
-
-        <div class="footer-final">
-            <p>© 2026 Saborê. Projeto desenvolvido para fins acadêmicos.</p>
-        </div>
+        <div class="footer-final"><p>© 2026 Saborê. Projeto desenvolvido para fins acadêmicos.</p></div>
     </footer>
 
-    <script src="../scripts/favoritos.js"></script>
+    <script src="../scripts/dropdown.js" defer></script>
+    <script src="../scripts/app.js" defer></script>
 </body>
-
 </html>

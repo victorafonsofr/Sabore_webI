@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saborê - Sua página de receitas</title>
-    <link rel="stylesheet" href="../assets/style.css">
-    <link rel="shortcut icon" href="../assets/icons/favicon_io (2)/favicon-32x32.png" type="image/x-icon">
+    <title>Saborê - Entrar</title>
+    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/assets/app.css">
+    <link rel="shortcut icon" href="/assets/icons/favicon_io (2)/favicon-32x32.png" type="image/x-icon">
 </head>
-
 <body>
     <nav>
         <div class="nav-bar">
-            <a href="index.html"><img class="img-logo" src="../assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="logo"></a>
-            <a href="index.html">Saborê</a>
+            <a href="/index.html"><img class="img-logo" src="/assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="Logo Saborê"></a>
+            <a href="/index.html">Saborê</a>
         </div>
     </nav>
     <section class="login-background">
-        <div class="login-box">
-            <label for="user">Usuário</label>
-            <input class="input-login" id="user" type="text" placeholder="Usuário">
-            <label for="passwd">Senha</label>
-            <input class="input-login" id="passwd" type="password" placeholder="Senha">
+        <form class="login-box formulario-auth" id="form-login">
+            <h1>Entrar</h1>
+            <label for="email">E-mail</label>
+            <input class="input-login" id="email" name="email" type="email" autocomplete="email" maxlength="100" placeholder="seu@email.com" required>
+            <label for="senha">Senha</label>
+            <input class="input-login" id="senha" name="senha" type="password" autocomplete="current-password" placeholder="Sua senha" required>
+            <p class="form-mensagem" id="mensagem-formulario" role="alert" aria-live="polite"></p>
             <button type="submit" class="btn-entrar">Entrar</button>
-            <hr class="divider" />
-            <p class="footer-text">
-                Ainda não tem uma conta? <a href="cadastro.html">Cadastre-se</a>
-            </p>
-        </div>
+            <hr class="divider">
+            <p class="footer-text">Ainda não tem uma conta? <a href="/cadastro.html">Cadastre-se</a></p>
+        </form>
     </section>
+    <script src="/scripts/auth.js" defer></script>
 </body>
+</html>

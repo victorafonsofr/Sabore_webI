@@ -8,10 +8,10 @@ function fecharDropdowns(exceto) {
     });
 }
 
-// Abrir/fechar ao clicar no botão
 document.querySelectorAll('.dropdown-btn').forEach((btn) => {
     btn.addEventListener('click', (e) => {
         if (!modoToque.matches) return;
+        e.preventDefault();
         e.stopPropagation();
         const dropdown = btn.closest('.dropdown, .dropdown-user');
         if (!dropdown) return;
@@ -20,12 +20,10 @@ document.querySelectorAll('.dropdown-btn').forEach((btn) => {
     });
 });
 
-// Clicar fora fecha
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.dropdown, .dropdown-user')) fecharDropdowns();
 });
 
-// Esc fecha
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') fecharDropdowns();
 });

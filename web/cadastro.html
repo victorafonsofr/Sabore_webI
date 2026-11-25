@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saborê - Sua página de receitas</title>
-    <link rel="stylesheet" href="../assets/style.css">
-    <link rel="shortcut icon" href="../assets/icons/favicon_io (2)/favicon-32x32.png" type="image/x-icon">
+    <title>Saborê - Cadastro</title>
+    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/assets/app.css">
+    <link rel="shortcut icon" href="/assets/icons/favicon_io (2)/favicon-32x32.png" type="image/x-icon">
 </head>
-
 <body>
     <nav>
         <div class="nav-bar">
-            <a href="index.html"><img class="img-logo" src="../assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="logo"></a>
-            <a href="index.html">Saborê</a>
+            <a href="/index.html"><img class="img-logo" src="/assets/icons/favicon_io (2)/android-chrome-192x192.png" alt="Logo Saborê"></a>
+            <a href="/index.html">Saborê</a>
         </div>
     </nav>
     <section class="login-background">
-        <div class="login-box">
-            <label for="new-user">Novo usuário</label>
-            <input class="input-login" id="new-user" type="text" placeholder="Usuário">
-            <label for="new-passwd">Senha</label>
-            <input class="input-login" id="new-passwd" type="password" placeholder="Senha">
-            <label for="confirm-passwd">Confirme a sua senha</label>
-            <input class="input-login" id="confirm-passwd" type="password" placeholder="Confirme a senha">
+        <form class="login-box formulario-auth" id="form-cadastro">
+            <h1>Criar conta</h1>
+            <label for="nome">Nome</label>
+            <input class="input-login" id="nome" name="nome" type="text" maxlength="55" autocomplete="name" placeholder="Seu nome" required>
+            <label for="email">E-mail</label>
+            <input class="input-login" id="email" name="email" type="email" maxlength="100" autocomplete="email" placeholder="seu@email.com" required>
+            <label for="data-nasc">Data de nascimento</label>
+            <input class="input-login" id="data-nasc" name="data_nasc" type="date" autocomplete="bday">
+            <label for="descricao">Sobre você</label>
+            <input class="input-login" id="descricao" name="descricao" type="text" maxlength="255" placeholder="Conte um pouco sobre você (opcional)">
+            <label for="senha">Senha</label>
+            <input class="input-login" id="senha" name="senha" type="password" minlength="8" maxlength="72" autocomplete="new-password" placeholder="Mínimo de 8 caracteres" required>
+            <label for="confirmar-senha">Confirme sua senha</label>
+            <input class="input-login" id="confirmar-senha" name="confirmar-senha" type="password" minlength="8" maxlength="72" autocomplete="new-password" placeholder="Repita a senha" required>
+            <p class="form-mensagem" id="mensagem-formulario" role="alert" aria-live="polite"></p>
             <button type="submit" class="btn-entrar">Cadastrar-se</button>
-            <hr class="divider" />
-            <p class="footer-text">
-                Já tem uma conta? <a href="login.html">Entre</a>
-            </p>
-        </div>
+            <hr class="divider">
+            <p class="footer-text">Já tem uma conta? <a href="/login.html">Entre</a></p>
+        </form>
     </section>
+    <script src="/scripts/auth.js" defer></script>
 </body>
+</html>
